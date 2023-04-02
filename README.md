@@ -11,7 +11,6 @@ WITH day_wise_data AS(
   GROUP BY CAST(transaction_time AS DATE)
 )
 SELECT *,
-
 AVG(t_amt) OVER(ORDER BY transaction_date
       ROWS BETWEEN 2 PRECEDING AND CURRENT ROW )
      as three_day_moving_average
